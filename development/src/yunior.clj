@@ -54,4 +54,4 @@ info
 (def arreglo [:a :b "c" :d ["John" ""]])
 
 (nth arreglo 2)
-(first (last arreglo))
+(second (last arreglo))
