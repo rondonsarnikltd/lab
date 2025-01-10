@@ -17,6 +17,8 @@ nombre
 
 (str/blank? "    ")
 
+(+ 4 3)
+
 (def data {:name "Juan"  :age 24 :sex :man :info {:address "Address" :phone "+1 301 9384983"} :state :havana})
 (def provinces #{:havana :matanzas :pr})
 (def set-data #{"a" "b" :a :b})
