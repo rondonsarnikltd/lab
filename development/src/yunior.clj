@@ -21,14 +21,15 @@ nombre
 
 (def data {:name "Juan"  :age 24 :sex :man :info {:address "Address" :phone "+1 301 9384983"} :state :havana})
 (def provinces #{:havana :matanzas :pr})
-(def set-data #{"a" "b" :a :b})
-(def lista '("a" "a" :b :c))
+(def set-data #{"a" "b" :b})
+(def lista '("a" "a" :b :c 1))
+(def arr [1 2 3 4 5 "string"])
 
 (get data :name)
 (get-in data [:info :phone])
 
 (def info (:info data))
-
+info
 (name :havana)
 
 (defn capitalize-first [s]
@@ -53,7 +54,7 @@ info
 
 (nth set-data 2)
 
-(def arreglo [:a :b "c" :d ["John" ""]])
+(def arreglo [:a :b "c" :d ["John" ["a" "b" "c"]]])
 
-(nth arreglo 2)
+(nth arreglo 4)
 (second (last arreglo))

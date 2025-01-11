@@ -1,8 +1,8 @@
 version: '3.7'
 services:
   app:
-    image: app-image
-    container_name: app-name
+    image: lab
+    container_name: lab
     ports:
       - 8080:8080
       - 9669:9669

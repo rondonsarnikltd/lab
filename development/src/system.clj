@@ -12,12 +12,18 @@
                        :dataSourceProperties {:socketTimeout 30}}})
 
 (defn create-system [config]
-  (component/system-map
-   :datasource (storage/datasource-component config)
-   :route (route/route-component config)
-   :server (component/using
-            (server/server-component config)
-            [:datasource :route])))
+  (if (:with-db config)
+    (component/system-map
+     :datasource (storage/datasource-component config)
+     :route (route/route-component config)
+     :server (component/using
+              (server/server-component config)
+              [:route :datasource]))
+    (component/system-map
+     :route (route/route-component config)
+     :server (component/using
+              (server/server-component config)
+              [:route]))))
 
 (defn start []
   (let [system (-> config
