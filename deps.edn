@@ -6,7 +6,8 @@
                                "components/web/resources"
                                "components/user/src"
                                "components/storage/src"
-                               "components/route/src"]
+                               "components/route/src"
+                               "components/yunior/src"]
                  :extra-deps {com.stuartsierra/component {:mvn/version "1.1.0"}
                               io.pedestal/pedestal.service {:mvn/version "0.5.9"}
                               io.pedestal/pedestal.route {:mvn/version "0.5.9"}
@@ -31,7 +32,8 @@
                                 "components/web/test"
                                 "components/user/test"
                                 "components/storage/test"
-                                "components/route/test"]
+                                "components/route/test"
+                                "components/yunior/test"]
                   :extra-deps {polylith-kaocha/kaocha-wrapper
                                {:git/url "https://github.com/imrekoszo/polylith-kaocha"
                                 :git/tag "v0.8.2"
