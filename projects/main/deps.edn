@@ -26,6 +26,7 @@
         poly/storage {:local/root "../../components/storage"}
         poly/route {:local/root "../../components/route"}
         poly/yunior {:local/root "../../components/yunior"}
+        poly/lgcanetti {:local/root "../../components/lgcanetti"}
 		poly/server {:local/root "../../bases/server"}}
  :aliases {:test {:extra-paths ["test"]
                   :extra-deps {}}

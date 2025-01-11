@@ -1,6 +1,6 @@
 (ns app.lgcanetti.index)
 
-(def content 
+(defn content []
   [:div
    {:class "bg-white"}
    [:div
