@@ -2,18 +2,21 @@
   (:require [hiccup2.core :as h]
             [app.lgcanetti.index :as index]))
 
-; Prepare the hicup to return it as html
+; Prepare the hiccup to return it as html
 (defn template [html-body]
   [:html
+   {:class "h-full bg-gray-100"}
    [:head
-    [:title "Title"]
+    [:title "Luis G. Canetti Morales's Page"]
     [:link {:href "tailwind.min.css" :rel "stylesheet"}]
-    [:script {:src "htmx.min.js"}]]
-   [:body (h/raw html-body)]])
+    [:script {:src "htmx.min.js"}]] 
+   [:body 
+    {:class "h-full"}
+    (h/raw html-body)]])
 
 (defn ok [body]
   {:status 200
-   :headers {"Content-Type" "text/html" "Content-Security-Policy" "img-src 'self'"}
+   :headers {"Content-Type" "text/html" }; {"Content-Type" "text/html" Content-Security-Policy" "img-src 'self'"}
    :body (-> body
              (h/html)
              (str))})
