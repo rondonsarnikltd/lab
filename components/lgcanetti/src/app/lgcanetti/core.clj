@@ -15,9 +15,13 @@
     {:class "h-full"}
     (h/raw html-body)]])
 
+(defn getHeaders []
+  {"Content-Type" "text/html"
+   "Content-Security-Policy" "img-src 'self'"})
+
 (defn ok [body]
   {:status 200
-   :headers {"Content-Type" "text/html" "Content-Security-Policy" "img-src 'self'"}
+   :headers (getHeaders)
    :body (-> body
              (h/html)
              (str))})
@@ -38,7 +42,7 @@
               (println message)
               ;; Respond with the value of message 
               (assoc context :response {:status 200
-                                        :headers {"Content-Type" "text/html" "Content-Security-Policy" "img-src 'self'"}
+                                        :headers (getHeaders)
                                         :body message})))})
 
 (def routes
