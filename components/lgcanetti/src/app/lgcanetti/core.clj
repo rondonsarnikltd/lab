@@ -39,7 +39,7 @@
    :enter (fn [context]
             (let [message (-> context :request :path-params :message)]
               ;; print the path param value in the terminal
-              (println message)
+              (println (str "Received message: " message))
               ;; Respond with the value of message 
               (assoc context :response {:status 200
                                         :headers (getHeaders)
