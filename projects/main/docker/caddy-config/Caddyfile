@@ -1,3 +1,13 @@
 yunior.busqandote.com {
+    handle_path /* {
+        rewrite * /yunior{uri}
         reverse_proxy lab:8080
+    }
+}
+
+lgcanetti.busqandote.com {
+    handle_path /* {
+        rewrite * /lgcanetti{uri}
+        reverse_proxy lab:8080
+    }
 }
