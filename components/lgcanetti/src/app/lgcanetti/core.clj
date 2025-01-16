@@ -46,7 +46,7 @@
                                         :body message})))})
 
 (def routes
-  #{["/lgcanetti" :get lgcanetti-page-handler :route-name ::lgcanetti-page]
+  #{["/lgcanetti/" :get lgcanetti-page-handler :route-name ::lgcanetti-page]
     ["/lgcanetti/:message"
      :get [params/keyword-params message-handler]
      :route-name ::message-handler]})

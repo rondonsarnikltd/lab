@@ -7,8 +7,8 @@
   [:html
    [:head
     [:title "Title"]
-    [:link {:href "tailwind.min.css" :rel "stylesheet"}]
-    [:script {:src "htmx.min.js"}]]
+    [:link {:href "../tailwind.min.css" :rel "stylesheet"}]
+    [:script {:src "../htmx.min.js"}]]
    [:body (h/raw html-body)]])
 
 (defn ok [body]
@@ -27,4 +27,4 @@
             (assoc context :response (respond index/content)))})
 
 (def routes
-  #{["/yunior" :get yunior-page-handler :route-name ::yunior-page]})
+  #{["/yunior/" :get yunior-page-handler :route-name ::yunior-page]})
