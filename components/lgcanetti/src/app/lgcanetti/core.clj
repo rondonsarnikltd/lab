@@ -9,8 +9,8 @@
    {:class "h-full bg-gray-100"}
    [:head
     [:title "Luis G. Canetti Morales's Page"]
-    [:link {:href "../tailwind.min.css" :rel "stylesheet"}]
-    [:script {:src "../htmx.min.js"}]] 
+    [:link {:href "tailwind.min.css" :rel "stylesheet"}]
+    [:script {:src "htmx.min.js"}]] 
    [:body 
     {:class "h-full"}
     (h/raw html-body)]])
