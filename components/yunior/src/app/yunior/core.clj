@@ -7,8 +7,8 @@
   [:html
    [:head
     [:title "Title"]
-    [:link {:href "../tailwind.min.css" :rel "stylesheet"}]
-    [:script {:src "../htmx.min.js"}]]
+    [:link {:href "tailwind.min.css" :rel "stylesheet"}]
+    [:script {:src "htmx.min.js"}]]
    [:body (h/raw html-body)]])
 
 (defn ok [body]
