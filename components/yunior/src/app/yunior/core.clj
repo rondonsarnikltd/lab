@@ -27,4 +27,4 @@
             (assoc context :response (respond index/content)))})
 
 (def routes
-  #{["/yunior" :get yunior-page-handler :route-name ::yunior-page]})
+  #{["/yunior/" :get yunior-page-handler :route-name ::yunior-page]})

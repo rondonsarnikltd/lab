@@ -1,3 +1,29 @@
 yunior.busqandote.com {
+    handle /tailwind.min.css {
         reverse_proxy lab:8080
+    }
+
+    handle /htmx.min.js {
+        reverse_proxy lab:8080
+    }
+
+    handle_path /* {
+        rewrite * /yunior{uri}
+        reverse_proxy lab:8080
+    }
+}
+
+lgcanetti.busqandote.com {
+    handle /tailwind.min.css {
+        reverse_proxy lab:8080
+    }
+
+    handle /htmx.min.js {
+        reverse_proxy lab:8080
+    }
+    
+    handle_path /* {
+        rewrite * /lgcanetti{uri}
+        reverse_proxy lab:8080
+    }
 }

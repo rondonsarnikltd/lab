@@ -33,3 +33,4 @@ pom.xml.asc
 
 # Other
 .vscode/*
+/docker/postgresql
