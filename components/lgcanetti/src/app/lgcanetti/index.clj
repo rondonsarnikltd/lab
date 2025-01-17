@@ -25,7 +25,7 @@
          (comment
            "Current: \"bg-gray-900 text-white\", Default: \"text-gray-300 hover:bg-gray-700 hover:text-white\"")
          [:a
-          {:href "#",
+          {:href "/lgcanetti/Dashboard",
            :class
            "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white",
            :aria-current "page"}
@@ -42,7 +42,7 @@
            "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
           "Projects"]
          [:a
-          {:href "#",
+          {:href "/lgcanetti/Calendar",
            :class
            "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
           "Calendar"]
@@ -177,13 +177,14 @@
       (comment
         "Current: \"bg-gray-900 text-white\", Default: \"text-gray-300 hover:bg-gray-700 hover:text-white\"")
       [:a
-       {:href "#",
+       {:href "/lgcanetti/Dashboard",
         :class
         "block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white",
         :aria-current "page"}
        "Dashboard"]
       [:a
        {:href "#",
+        :onClick "alert('Link clicked!');",
         :class
         "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
        "Team"]
@@ -193,7 +194,7 @@
         "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
        "Projects"]
       [:a
-       {:href "#",
+       {:href "/lgcanetti/Calendar",
         :class
         "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
        "Calendar"]
@@ -266,5 +267,6 @@
    [:main
     [:div
      {:class "mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8"}
-     (comment "Your content")]]]
+     (comment "Your content")
+     "When I try to use an argument on function (content []) to put the text here, it doesn't work!"]]]
   )
