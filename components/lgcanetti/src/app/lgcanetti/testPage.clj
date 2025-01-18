@@ -1,4 +1,4 @@
-(ns app.lgcanetti.testPage)
+(ns app.lgcanetti.testpage)
 
 (defn test-page 
   ([] (test-page "Default Message"))
