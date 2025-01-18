@@ -9,6 +9,8 @@
   [:html
    {:class "h-full bg-gray-100"}
    [:head
+    [:meta
+     {:name "viewport" :content "width=device-width,initial-scale=1"}]
     [:title "Luis G. Canetti Morales's Page"]
     [:link {:href "tailwind.min.css" :rel "stylesheet"}]
     [:script {:src "htmx.min.js"}]] 
