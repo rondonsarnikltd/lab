@@ -20,30 +20,24 @@
   {"Content-Type" "text/html"
    "Content-Security-Policy" "img-src 'self'"})
 
+(defn ok [body]
+  {:status 200
+   :headers (getHeaders)
+   :body (-> body (h/html) (str))})
+
 (defn respond [content]
-  {:status 200
-   :headers (getHeaders)
-   :body (-> (template (str (h/html (content))))
-             (h/html)
-             (str))})
+  (ok (template (str (h/html (content))))))
 
-(defn simpleResponse [content]
-  {:status 200
-   :headers (getHeaders)
-   :body (str (h/html content))})
-
+(defn respond-with-params [content value]
+  (ok (template (str (h/html (content value))))))
 
 (def lgcanetti-page-handler
   {:name :get
    :enter (fn [context]
-            (println (str "Esta pasan2 por aki"))
             (assoc context :response (respond index/content)))})
 
 (defn processMsg [msg]
-  (println (str "Received message: " msg))
-   (if (= msg "Projects")
-     (respond testPage/test-page);;This fails with arguments: (respond testPage/test-page msg)
-     (simpleResponse (testPage/test-page msg))));;This works with arguments
+  (respond-with-params testPage/test-page [:p (str "The user has clicked on " msg)]))
  
 
 (def message-handler

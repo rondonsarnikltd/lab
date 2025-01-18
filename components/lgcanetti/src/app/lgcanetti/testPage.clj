@@ -1,8 +1,8 @@
 (ns app.lgcanetti.testpage)
 
 (defn test-page 
-  ([] (test-page "Default Message"))
-  ([msg]
+  ([] (test-page [:p (str "Default Message")]))
+  ([arg]
   [:div
    [:h1 "Test Page"]
-   [:p (str "This is the function argument: " msg)]]))
+   arg]))

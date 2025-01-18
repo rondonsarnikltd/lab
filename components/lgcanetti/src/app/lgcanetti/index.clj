@@ -1,6 +1,8 @@
 (ns app.lgcanetti.index)
 
-(defn content []
+(defn content 
+  ([] (content [:p (str "Your content here!")]))
+  ([dbcontent]
   [:div
    {:class "min-h-full"}
    [:nav
@@ -25,7 +27,7 @@
          (comment
            "Current: \"bg-gray-900 text-white\", Default: \"text-gray-300 hover:bg-gray-700 hover:text-white\"")
          [:a
-          {:href "/lgcanetti/Dashboard",
+          {:href "/lgcanetti/dashboard",
            :class
            "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white",
            :aria-current "page"}
@@ -37,12 +39,12 @@
            "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
           "Team"] 
          [:a
-          {:href "/lgcanetti/Projects",
+          {:href "/lgcanetti/projects",
            :class
            "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
           "Projects"]
          [:a
-          {:href "/lgcanetti/Calendar",
+          {:href "/lgcanetti/calendar",
            :class
            "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
           "Calendar"]
@@ -177,7 +179,7 @@
       (comment
         "Current: \"bg-gray-900 text-white\", Default: \"text-gray-300 hover:bg-gray-700 hover:text-white\"")
       [:a
-       {:href "/lgcanetti/Dashboard",
+       {:href "/lgcanetti/dashboard",
         :class
         "block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white",
         :aria-current "page"}
@@ -189,12 +191,12 @@
         "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
        "Team"]
       [:a
-       {:href "/lgcanetti/Projects",
+       {:href "/lgcanetti/projects",
         :class
         "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
        "Projects"]
       [:a
-       {:href "/lgcanetti/Calendar",
+       {:href "/lgcanetti/calendar",
         :class
         "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
        "Calendar"]
@@ -268,5 +270,5 @@
     [:div
      {:class "mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8"}
      (comment "Your content")
-     "When I try to use an argument on function (content []) to put the text here, it doesn't work!"]]]
-  )
+     dbcontent]]]
+  ))
