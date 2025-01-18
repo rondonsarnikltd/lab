@@ -18,7 +18,7 @@
 
 (defn getHeaders []
   {"Content-Type" "text/html"
-   "Content-Security-Policy" "img-src 'self'"})
+   "Content-Security-Policy" "img-src *"});Se cambio 'self' por *
 
 (defn ok [body]
   {:status 200

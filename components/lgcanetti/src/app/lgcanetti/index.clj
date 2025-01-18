@@ -16,7 +16,7 @@
        [:div
         {:class "shrink-0"}
         [:img
-         {:class "size-8",
+         {:class "w-8 h-8",
           :src
           "https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500",
           :alt "Your Company"}]]
@@ -91,10 +91,10 @@
            [:span {:class "absolute -inset-1.5"}]
            [:span {:class "sr-only"} "Open user menu"]
            [:img
-            {:class "size-8 rounded-full",
+            {:class "w-8 h-8 rounded-full",
              :src
              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-             :alt ""}]]]
+             :alt "Photo"}]]]
          (comment
            "Dropdown menu, show/hide based on menu state.
          Entering: \"transition ease-out duration-100\"
@@ -213,10 +213,10 @@
        [:div
         {:class "shrink-0"}
         [:img
-         {:class "size-10 rounded-full",
+         {:class "w-12 h-12 rounded-full",
           :src
           "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-          :alt "photo"}]]
+          :alt "Photo"}]]
        [:div
         {:class "ml-3"}
         [:div {:class "text-base/5 font-medium text-white"} "Tom Cook"]
