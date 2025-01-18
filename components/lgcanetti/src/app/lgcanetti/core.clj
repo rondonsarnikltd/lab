@@ -18,7 +18,7 @@
 
 (defn getHeaders []
   {"Content-Type" "text/html"
-   "Content-Security-Policy" "img-src *"});Se cambio 'self' por *
+   "Content-Security-Policy" "img-src *"});Changed: "img-src 'self'" by "img-src *"
 
 (defn ok [body]
   {:status 200
@@ -54,6 +54,6 @@
     ["/lgcanetti/" 
      :get lgcanetti-page-handler 
      :route-name ::lgcanetti-prod]
-    ["/lgcanetti/:message"
+    ["/lgcanetti/:message";TODO This route do not loads stylesheets neither scripts (Review Caddy config with Junior)
      :get [params/keyword-params message-handler]
      :route-name ::message-handler]})
