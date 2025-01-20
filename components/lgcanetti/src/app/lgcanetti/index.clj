@@ -1,7 +1,10 @@
 (ns app.lgcanetti.index)
 
 (defn content 
-  ([] (content [:p (str "Your content here!")]))
+  ([] (content [:p
+                "Your content here!"
+                [:br]
+                "This is a Tailwind Dasboard template, may not function well due version incompatibilities..."]))
   ([dbcontent]
   [:div
    {:class "min-h-full"}
