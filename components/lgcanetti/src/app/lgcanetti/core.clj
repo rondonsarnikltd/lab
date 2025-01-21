@@ -38,7 +38,7 @@
             (assoc context :response (respond index/content)))})
 
 (defn processMsg [msg]
-  (let [args {:element [:p (str "The user has clicked on " msg)]}]
+  (let [args {:element [:p (str "The user has clicked on " msg)] :prod true}]
     (respond-with-params index/content args)))
 
 
