@@ -31,7 +31,7 @@
          (comment
            "Current: \"bg-gray-900 text-white\", Default: \"text-gray-300 hover:bg-gray-700 hover:text-white\"")
          [:a
-          {:href (if (get dbcontent :prod) "/nav/dashboard" "/lgcanetti/nav/dashboard"),
+          {:href (if (get dbcontent :prod) "/dashboard" "/lgcanetti/dashboard"),
            :class
            "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white",
            :aria-current "page"}
@@ -43,12 +43,12 @@
            "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
           "Team"] 
          [:a
-          {:href (if (get dbcontent :prod) "/nav/projects" "/lgcanetti/nav/projects"),
+          {:href (if (get dbcontent :prod) "/projects" "/lgcanetti/projects"),
            :class
            "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
           "Projects"]
          [:a
-          {:href (if (get dbcontent :prod) "/nav/calendar" "/lgcanetti/nav/calendar"),
+          {:href (if (get dbcontent :prod) "/calendar" "/lgcanetti/calendar"),
            :class
            "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
           "Calendar"]
@@ -118,21 +118,21 @@
           (comment
             "Active: \"bg-gray-100 outline-none\", Not Active: \"\"")
           [:a
-           {:href (if (get dbcontent :prod) "/nav/profile" "/lgcanetti/nav/profile"),
+           {:href (if (get dbcontent :prod) "/profile" "/lgcanetti/profile"),
             :class "block px-4 py-2 text-sm text-gray-700",
             :role "menuitem",
             :tabindex "-1",
             :id "user-menu-item-0"}
            "Your Profile"]
           [:a
-           {:href (if (get dbcontent :prod) "/nav/settings" "/lgcanetti/nav/settings"),
+           {:href (if (get dbcontent :prod) "/settings" "/lgcanetti/settings"),
             :class "block px-4 py-2 text-sm text-gray-700",
             :role "menuitem",
             :tabindex "-1",
             :id "user-menu-item-1"}
            "Settings"]
           [:a
-           {:href (if (get dbcontent :prod) "/login" "/lgcanetti/login"),
+           {:href (if (get dbcontent :prod) "/sign-out" "/lgcanetti/sign-out"),
             :class "block px-4 py-2 text-sm text-gray-700",
             :role "menuitem",
             :tabindex "-1",
@@ -183,7 +183,7 @@
       (comment
         "Current: \"bg-gray-900 text-white\", Default: \"text-gray-300 hover:bg-gray-700 hover:text-white\"")
       [:a
-       {:href (if (get dbcontent :prod) "/nav/dashboard" "/lgcanetti/nav/dashboard"),
+       {:href (if (get dbcontent :prod) "/dashboard" "/lgcanetti/dashboard"),
         :class
         "block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white",
         :aria-current "page"}
@@ -195,12 +195,12 @@
         "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
        "Team"]
       [:a
-       {:href (if (get dbcontent :prod) "/nav/projects" "/lgcanetti/nav/projects"),
+       {:href (if (get dbcontent :prod) "/projects" "/lgcanetti/projects"),
         :class
         "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
        "Projects"]
       [:a
-       {:href (if (get dbcontent :prod) "/nav/calendar" "/lgcanetti/nav/calendar"),
+       {:href (if (get dbcontent :prod) "/calendar" "/lgcanetti/calendar"),
         :class
         "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
        "Calendar"]
@@ -249,17 +249,17 @@
       [:div
        {:class "mt-3 space-y-1 px-2"}
        [:a
-        {:href (if (get dbcontent :prod) "/nav/profile" "/lgcanetti/nav/profile"),
+        {:href (if (get dbcontent :prod) "/profile" "/lgcanetti/profile"),
          :class
          "block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"}
         "Your Profile"]
        [:a
-        {:href (if (get dbcontent :prod) "/nav/settings" "/lgcanetti/nav/settings"),
+        {:href (if (get dbcontent :prod) "/settings" "/lgcanetti/settings"),
          :class
          "block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"}
         "Settings"]
        [:a
-        {:href (if (get dbcontent :prod) "/login" "/lgcanetti/login"),
+        {:href (if (get dbcontent :prod) "/sign-out" "/lgcanetti/sign-out"),
          :class
          "block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"}
         "Sign out"]]]]]

@@ -39,8 +39,11 @@
              (assoc context :response (respond index/content)))})
 
  (defn processMsg [msg]
-   (let [args {:element [:p (str "The user has clicked on " msg)] :prod true}]
-     (respond-with-params index/content args)))
+   ;;(println msg)
+   (if (= msg "sign-out")
+     (respond login/login-page)
+     (let [args {:element [:p (str "The user has clicked on " msg)] :prod true}]
+       (respond-with-params index/content args))))
 
 
  (def message-handler
@@ -50,11 +53,6 @@
               ;; Respond with the value of message 
                (assoc context :response (processMsg message))))})
 
- (def lgcanetti-login-handler
-   {:name :get
-    :enter (fn [context]
-             (assoc context :response (respond login/login-page)))})
-
 (def routes
   #{["/lgcanetti"
      :get lgcanetti-page-handler
@@ -62,9 +60,6 @@
     ["/lgcanetti/"
      :get lgcanetti-page-handler
      :route-name ::lgcanetti-prod]
-    ["/lgcanetti/nav/:message";TODO This route do not loads stylesheets neither scripts (Review Caddy config with Yunior)
+    ["/lgcanetti/:message";TODO This route do not loads stylesheets neither scripts (Review Caddy config with Yunior)
      :get [params/keyword-params message-handler]
-     :route-name ::message-handler]
-    ["/lgcanetti/login"
-     :get lgcanetti-login-handler
-     :route-name ::lgcanetti-login]})
+     :route-name ::message-handler]})
