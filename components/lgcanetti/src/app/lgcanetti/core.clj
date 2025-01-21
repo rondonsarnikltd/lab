@@ -2,7 +2,7 @@
   (:require [hiccup2.core :as h]
             [io.pedestal.http.params :as params] ;; we need this to access the path params in the requests
             [app.lgcanetti.index :as index]
-            [app.lgcanetti.testpage :as testPage]))
+            [app.lgcanetti.testingpage :as testPage]))
 
 ; Prepare the hiccup to return it as html
 (defn template [html-body]
