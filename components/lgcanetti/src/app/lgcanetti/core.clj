@@ -73,7 +73,7 @@
  
  (defn lgcanetti-login-handler [context]
    (let [params (-> context :request :form-params)  args {:element [:p "User loged in!"] :prod envp}]
-     (println "Login form submitted with params:" params)
+     (println (str "Login form submitted with params:" params))
      ;; Aquí puedes agregar la lógica para autenticar al usuario
      ;; Por ejemplo, verificar el nombre de usuario y la contraseña
      (assoc context :response (respond-with-params index/content args))))
@@ -85,7 +85,7 @@
     ["/lgcanetti/"
      :get lgcanetti-page-handler
      :route-name ::lgcanetti-prod]
-    ["/lgcanetti/login"
+    ["/lgcanetti/login";TODO ver con Yunior por que esta ruta no trabaja
      :post [params/keyword-params lgcanetti-login-handler]
      :route-name ::lgcanetti-login-handler]
     ["/lgcanetti/:message"
