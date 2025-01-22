@@ -6,7 +6,7 @@
              [app.lgcanetti.welcomemsg :as welcomemsg]
              [app.lgcanetti.projects :as projects]))
  
-(def envp false) ;; Change to true to use production environment
+(def envp true) ;; Change to true to use production environment
 
 ; Prepare the hiccup to return it as html
  (defn template [html-body]
