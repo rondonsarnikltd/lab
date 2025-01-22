@@ -1,9 +1,9 @@
 (ns app.lgcanetti.projects)
 
 (def projects
-  [{:name "Project 1" :description "Description for Project 1" :image "https://example.com/Project1.jpg"}
-   {:name "Project 2" :description "Description for Project 2" :image "https://example.com/project2.jpg"}
-   {:name "Project 3" :description "Description for Project 3" :image "https://example.com/project3.jpg"}])
+  [{:name "Project 1" :description "Description for Project 1" :image "https://plus.unsplash.com/premium_photo-1736505438059-49c20fc32ff7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwbHVzLWZlZWR8NTN8fHxlbnwwfHx8fHw%3D"}
+   {:name "Project 2" :description "Description for Project 2" :image "https://plus.unsplash.com/premium_photo-1705169612592-32610774a5d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwbHVzLWZlZWR8MTh8fHxlbnwwfHx8fHw%3D"}
+   {:name "Project 3" :description "Description for Project 3" :image "https://plus.unsplash.com/premium_photo-1732738372665-cefc61e5e4d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwbHVzLWZlZWR8NDd8fHxlbnwwfHx8fHw%3D"}])
 
 (defn get-projects [projects]
   [:section
