@@ -14,3 +14,13 @@
 
 (defn divide [a b]
     (/ a b))
+
+(defn user-message [keyword]
+  (case keyword
+    :simplicity "Simplicity is the ultimate sophistication."
+    :complexity "Complexity is the enemy of execution."
+    "Unknown keyword"))
+
+(def x (user-message :simplicity))
+
+println x
