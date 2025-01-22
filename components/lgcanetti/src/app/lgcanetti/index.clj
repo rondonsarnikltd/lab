@@ -1,12 +1,6 @@
 (ns app.lgcanetti.index)
 
-(defn content 
-  ([] (content {:element [:p
-                "Your content here!"
-                [:br]
-                "This is a Tailwind Dasboard template, may not function well due version incompatibilities..."]
-                :prod true})) 
-  ([dbcontent]
+(defn content [dbcontent]
   [:div
    {:class "min-h-full"}
    [:nav
@@ -275,4 +269,4 @@
      {:class "mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8"}
      (comment "Your content")
      (get dbcontent :element)]]]
-  ))
+  )

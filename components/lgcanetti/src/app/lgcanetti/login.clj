@@ -1,6 +1,6 @@
 (ns app.lgcanetti.login)
 
-(defn login-page []
+(defn login-page [args]
   (comment
     "This example requires updating your template:\n\n  ```\n  <html class=\"h-full bg-white\">\n  <body class=\"h-full\">\n  ```")
   [:div
@@ -19,7 +19,7 @@
    [:div
     {:class "mt-10 sm:mx-auto sm:w-full sm:max-w-sm"}
     [:form
-     {:class "space-y-6", :action "#", :method "POST"}
+     {:class "space-y-6", :action (if (get args :prod) "/login" "/lgcanetti/login"), :method "POST"}
      [:div
       [:label
        {:for "email", :class "block text-sm/6 font-medium text-gray-900"}
@@ -69,4 +69,4 @@
      [:a
       {:href "#",
        :class "font-semibold text-indigo-600 hover:text-indigo-500"}
-      "Start a 14 day free trial"]]]])
+      " Start a 14 day free trial"]]]])

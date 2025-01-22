@@ -3,6 +3,8 @@
              [io.pedestal.http.params :as params] ;; we need this to access the path params in the requests
              [app.lgcanetti.index :as index]
              [app.lgcanetti.login :as login]))
+ 
+(def envp true) ;; Change to true to use production environment
 
 ; Prepare the hiccup to return it as html
  (defn template [html-body]
@@ -36,13 +38,18 @@
  (def lgcanetti-page-handler
    {:name :get
     :enter (fn [context]
-             (assoc context :response (respond index/content)))})
+             (let [params {:element [:p
+                                     "Your content here!"
+                                     [:br]
+                                     "This is a Tailwind Dasboard template, may not function well due version incompatibilities..."] 
+                           :prod envp}]
+             (assoc context :response (respond-with-params index/content params))))})
 
  (defn processMsg [msg]
-   ;;(println msg)
+   (println (str "Selected route: " msg))
    (if (= msg "sign-out")
-     (respond login/login-page)
-     (let [args {:element [:p (str "The user has clicked on " msg)] :prod true}]
+     (let [arg {:prod envp}] (respond-with-params login/login-page arg))
+     (let [args {:element [:p (str "The user has clicked on " msg)] :prod envp}]
        (respond-with-params index/content args))))
 
 
@@ -52,6 +59,24 @@
              (let [message (-> context :request :path-params :message)]
               ;; Respond with the value of message 
                (assoc context :response (processMsg message))))})
+ 
+ (comment 
+   (def lgcanetti-login-handler
+   {:name :post
+    :enter (fn [context]
+             (let [params (-> context :request :form-params) args {:element [:p "User loged in!"] :prod envp}]
+               (println (str "Login form submitted with params:" params))
+               ;; Aquí puedes agregar la lógica para autenticar al usuario
+               ;; Por ejemplo, verificar el nombre de usuario y la contraseña
+               (assoc context :response (respond-with-params index/content args))))})
+   )
+ 
+ (defn lgcanetti-login-handler [context]
+   (let [params (-> context :request :form-params)]
+     (println "Login form submitted with params:" params)
+     ;; Aquí puedes agregar la lógica para autenticar al usuario
+     ;; Por ejemplo, verificar el nombre de usuario y la contraseña
+     (assoc context :response (respond index/content))))
 
 (def routes
   #{["/lgcanetti"
@@ -60,6 +85,9 @@
     ["/lgcanetti/"
      :get lgcanetti-page-handler
      :route-name ::lgcanetti-prod]
-    ["/lgcanetti/:message";TODO This route do not loads stylesheets neither scripts (Review Caddy config with Yunior)
+    ["/lgcanetti/login"
+     :post [params/keyword-params lgcanetti-login-handler]
+     :route-name ::lgcanetti-login-handler]
+    ["/lgcanetti/:message"
      :get [params/keyword-params message-handler]
      :route-name ::message-handler]})
