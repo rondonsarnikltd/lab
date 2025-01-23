@@ -15,6 +15,6 @@
     (for [project projects]
       [:div
        {:class "mb-12"}
-       [:img {:class "mx-auto h-12", :src (:image project), :alt (:name project)}]
+       [:img {:class "mx-auto h-32", :src (:image project), :alt (:name project)}]
        [:h2 {:class "text-center text-xl font-semibold text-gray-900"} (:name project)]
        [:p {:class "text-center text-gray-700"} (:description project)]])]])
