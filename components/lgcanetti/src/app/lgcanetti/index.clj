@@ -1,5 +1,14 @@
 (ns app.lgcanetti.index)
 
+(def navclass {:selected-l "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+               :normal-l "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+               :selected-p "block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+               :normal-p "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+               :mnu-l "block px-4 py-2 text-sm text-gray-700"
+               :mnu-p "block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"})
+
+(def linktit ["Dashboard" "Team" "Projects" "Calendar" "Google" "Your Profile" "Settings" "Sign out"])
+
 (defn content [dbcontent]
   [:div
    {:class "min-h-full"}
@@ -25,33 +34,28 @@
          (comment
            "Current: \"bg-gray-900 text-white\", Default: \"text-gray-300 hover:bg-gray-700 hover:text-white\"")
          [:a
-          {:href (if (get dbcontent :prod) "/dashboard" "/lgcanetti/dashboard"),
-           :class
-           "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white",
+          {:href (if (:prod dbcontent) "/dashboard" "/lgcanetti/dashboard"),
+           :class (if (= (:title dbcontent) (linktit 0)) (:selected-l navclass) (:normal-l navclass)),
            :aria-current "page"}
-          "Dashboard"]
+          (linktit 0)]
          [:a
           {:href "#",
            :onClick "alert('Link clicked!');",
-           :class
-           "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
-          "Team"] 
+           :class (if (= (:title dbcontent) (linktit 1)) (:selected-l navclass) (:normal-l navclass))}
+          (linktit 1)] 
          [:a
-          {:href (if (get dbcontent :prod) "/projects" "/lgcanetti/projects"),
-           :class
-           "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
-          "Projects"]
+          {:href (if (:prod dbcontent) "/projects" "/lgcanetti/projects"),
+           :class (if (= (:title dbcontent) (linktit 2)) (:selected-l navclass) (:normal-l navclass))}
+          (linktit 2)]
          [:a
-          {:href (if (get dbcontent :prod) "/calendar" "/lgcanetti/calendar"),
-           :class
-           "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
-          "Calendar"]
+          {:href (if (:prod dbcontent) "/calendar" "/lgcanetti/calendar"),
+           :class (if (= (:title dbcontent) (linktit 3)) (:selected-l navclass) (:normal-l navclass))}
+          (linktit 3)]
          [:a
           {:href "https://google.com",
            :target "_blank",
-           :class
-           "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
-          "Google"]]]]
+           :class (if (= (:title dbcontent) (linktit 4)) (:selected-l navclass) (:normal-l navclass))}
+          (linktit 4)]]]]
       [:div
        {:class "hidden md:block"}
        [:div
@@ -112,26 +116,26 @@
           (comment
             "Active: \"bg-gray-100 outline-none\", Not Active: \"\"")
           [:a
-           {:href (if (get dbcontent :prod) "/profile" "/lgcanetti/profile"),
-            :class "block px-4 py-2 text-sm text-gray-700",
+           {:href (if (:prod dbcontent) "/profile" "/lgcanetti/profile"),
+            :class (:mnu-l navclass),
             :role "menuitem",
             :tabindex "-1",
             :id "user-menu-item-0"}
-           "Your Profile"]
+           (linktit 5)]
           [:a
-           {:href (if (get dbcontent :prod) "/settings" "/lgcanetti/settings"),
-            :class "block px-4 py-2 text-sm text-gray-700",
+           {:href (if (:prod dbcontent) "/settings" "/lgcanetti/settings"),
+            :class (:mnu-l navclass),
             :role "menuitem",
             :tabindex "-1",
             :id "user-menu-item-1"}
-           "Settings"]
+           (linktit 6)]
           [:a
-           {:href (if (get dbcontent :prod) "/sign-out" "/lgcanetti/sign-out"),
-            :class "block px-4 py-2 text-sm text-gray-700",
+           {:href (if (:prod dbcontent) "/sign-out" "/lgcanetti/sign-out"),
+            :class (:mnu-l navclass),
             :role "menuitem",
             :tabindex "-1",
             :id "user-menu-item-2"}
-           "Sign out"]]]]]
+           (linktit 7)]]]]]
       [:div
        {:class "-mr-2 flex md:hidden"}
        (comment "Mobile menu button")
@@ -178,32 +182,27 @@
         "Current: \"bg-gray-900 text-white\", Default: \"text-gray-300 hover:bg-gray-700 hover:text-white\"")
       [:a
        {:href (if (get dbcontent :prod) "/dashboard" "/lgcanetti/dashboard"),
-        :class
-        "block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white",
+        :class (if (= (:title dbcontent) (linktit 0)) (:selected-p navclass) (:normal-p navclass)),
         :aria-current "page"}
-       "Dashboard"]
+       (linktit 0)]
       [:a
        {:href "#",
         :onClick "alert('Link clicked!');",
-        :class
-        "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
-       "Team"]
+        :class (if (= (:title dbcontent) (linktit 1)) (:selected-p navclass) (:normal-p navclass))}
+       (linktit 1)]
       [:a
-       {:href (if (get dbcontent :prod) "/projects" "/lgcanetti/projects"),
-        :class
-        "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
-       "Projects"]
+       {:href (if (:prod dbcontent) "/projects" "/lgcanetti/projects"),
+        :class (if (= (:title dbcontent) (linktit 2)) (:selected-p navclass) (:normal-p navclass))}
+       (linktit 2)]
       [:a
-       {:href (if (get dbcontent :prod) "/calendar" "/lgcanetti/calendar"),
-        :class
-        "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
-       "Calendar"]
+       {:href (if (:prod dbcontent) "/calendar" "/lgcanetti/calendar"),
+        :class (if (= (:title dbcontent) (linktit 3)) (:selected-p navclass) (:normal-p navclass))}
+       (linktit 3)]
       [:a
        {:href "https://google.com",
         :target "_blank",
-        :class
-        "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"}
-       "Google"]]
+        :class (if (= (:title dbcontent) (linktit 4)) (:selected-p navclass) (:normal-p navclass))}
+       (linktit 4)]]
      [:div
       {:class "border-t border-gray-700 pb-3 pt-4"}
       [:div
@@ -243,30 +242,27 @@
       [:div
        {:class "mt-3 space-y-1 px-2"}
        [:a
-        {:href (if (get dbcontent :prod) "/profile" "/lgcanetti/profile"),
-         :class
-         "block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"}
-        "Your Profile"]
+        {:href (if (:prod dbcontent) "/profile" "/lgcanetti/profile"),
+         :class (:mnu-p navclass)}
+        (linktit 5)]
        [:a
-        {:href (if (get dbcontent :prod) "/settings" "/lgcanetti/settings"),
-         :class
-         "block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"}
-        "Settings"]
+        {:href (if (:prod dbcontent) "/settings" "/lgcanetti/settings"),
+         :class (:mnu-p navclass)}
+        (linktit 6)]
        [:a
-        {:href (if (get dbcontent :prod) "/sign-out" "/lgcanetti/sign-out"),
-         :class
-         "block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"}
-        "Sign out"]]]]]
+        {:href (if (:prod dbcontent) "/sign-out" "/lgcanetti/sign-out"),
+         :class (:mnu-p navclass)}
+        (linktit 7)]]]]]
    [:header
     {:class "bg-white shadow"}
     [:div
      {:class "mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8"}
      [:h1
       {:class "text-3xl font-bold tracking-tight text-gray-900"}
-      "Dashboard"]]]
+      (:title dbcontent)]]]
    [:main
     [:div
      {:class "mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8"}
      (comment "Your content")
-     (get dbcontent :element)]]]
+     (:element dbcontent)]]]
   )

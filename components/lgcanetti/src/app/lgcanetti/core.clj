@@ -1,6 +1,7 @@
 (ns app.lgcanetti.core
    (:require [hiccup2.core :as h]
              [io.pedestal.http.params :as params] ;; we need this to access the path params in the requests
+             [clojure.string :as string]
              [app.lgcanetti.index :as index]
              [app.lgcanetti.login :as login]
              [app.lgcanetti.welcomemsg :as welcomemsg]
@@ -40,15 +41,18 @@
  (def lgcanetti-page-handler
    {:name :get
     :enter (fn [context]
-             (let [params {:element (welcomemsg/welcome-msg) :prod envp}]
+             (let [params {:element (welcomemsg/welcome-msg) :title "Dashboard" :prod envp}]
              (assoc context :response (respond-with-params index/content params))))})
+ 
+ (defn capitalize-first [s]
+   (str (string/upper-case (subs s 0 1)) (subs s 1)))
 
  (defn processMsg [msg]
    (println (str "Selected route: " msg))
    (cond 
      (= msg "sign-out") (let [arg {:prod envp}] (respond-with-params login/login-page arg))
-     (= msg "projects") (let [arg {:element (projects/get-projects projects/projects) :prod envp}] (respond-with-params index/content arg))
-     :else (let [args {:element [:p (str "The user has clicked on " msg)] :prod envp}]
+     (= msg "projects") (let [arg {:element (projects/get-projects projects/projects) :title (index/linktit 2) :prod envp}] (respond-with-params index/content arg))
+     :else (let [args {:element [:p (str "The user has clicked on " (capitalize-first msg))] :title (capitalize-first msg) :prod envp}]
        (respond-with-params index/content args))))
 
 
