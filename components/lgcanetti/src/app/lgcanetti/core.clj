@@ -6,7 +6,8 @@
              [app.lgcanetti.login :as login]
              [app.lgcanetti.welcomemsg :as welcomemsg]
              [app.lgcanetti.projects :as projects]
-             [app.lgcanetti.team :as team]))
+             [app.lgcanetti.team :as team]
+             [app.lgcanetti.dashb :as dashb]))
  
 (def envp true) ;; Change to true to use production environment
 
@@ -43,7 +44,7 @@
  (def lgcanetti-page-handler
    {:name :get
     :enter (fn [context]
-             (let [params {:element (welcomemsg/welcome-msg) :title "Dashboard" :prod envp}]
+             (let [params {:element (dashb/dashb-page) :title (index/linktit 0) :prod envp}]
              (assoc context :response (respond-with-params index/content params))))})
  
  (defn capitalize-first [s]
@@ -53,6 +54,7 @@
    (println (str "Selected route: " msg))
    (cond 
      (= msg "sign-out") (let [arg {:prod envp}] (respond-with-params login/login-page arg))
+     (= msg "dashboard") (let [arg {:element (dashb/dashb-page) :title (index/linktit 0) :prod envp}] (respond-with-params index/content arg))
      (= msg "projects") (let [arg {:element (projects/get-projects projects/projects) :title (index/linktit 2) :prod envp}] (respond-with-params index/content arg))
      (= msg "team") (let [arg {:element (team/team-page) :title (index/linktit 1) :prod envp}] (respond-with-params index/content arg))
      :else (let [args {:element [:p (str "The user has clicked on " (capitalize-first msg))] :title (capitalize-first msg) :prod envp}]
