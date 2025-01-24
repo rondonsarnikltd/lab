@@ -35,7 +35,7 @@
         [:div
          {:class "flex items-center gap-x-6"}
          [:img
-          {:class "size-16 rounded-full",
+          {:class "w-16 h-16 rounded-full",
            :src (:image people)
            :alt "Pict"}]
          [:div
