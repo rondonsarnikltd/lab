@@ -41,7 +41,7 @@
          [:a
           {:href (if (:prod dbcontent) "/team" "/lgcanetti/team"),
            :class (if (= (:title dbcontent) (linktit 1)) (:selected-l navclass) (:normal-l navclass))}
-          (linktit 1)] 
+          (linktit 1)]
          [:a
           {:href (if (:prod dbcontent) "/projects" "/lgcanetti/projects"),
            :class (if (= (:title dbcontent) (linktit 2)) (:selected-l navclass) (:normal-l navclass))}
@@ -66,7 +66,7 @@
          [:span {:class "absolute -inset-1.5"}]
          [:span {:class "sr-only"} "View notifications"]
          [:svg
-          {:class "size-6",
+          {:class "h-6 w-6",
            :fill "none",
            :viewBox "0 0 24 24",
            :stroke-width "1.5",
@@ -88,7 +88,8 @@
             "relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800",
             :id "user-menu-button",
             :aria-expanded "false",
-            :aria-haspopup "true"}
+            :aria-haspopup "true",
+            :onClick "toggleMenu()"}
            [:span {:class "absolute -inset-1.5"}]
            [:span {:class "sr-only"} "Open user menu"]
            [:img
@@ -103,11 +104,11 @@
          To: \"transform opacity-100 scale-100\"
          Leaving: \"transition ease-in duration-75\"
          From: \"transform opacity-100 scale-100\"
-         To: \"transform opacity-0 scale-95\""
-           )
+         To: \"transform opacity-0 scale-95\"")
          [:div
           {:class
-           "absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none",
+           "absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none hidden",
+           :id "menu-tl",
            :role "menu",
            :aria-orientation "vertical",
            :aria-labelledby "user-menu-button",
@@ -117,6 +118,7 @@
           [:a
            {:href (if (:prod dbcontent) "/profile" "/lgcanetti/profile"),
             :class (:mnu-l navclass),
+            :onClick "toggleMenu()",
             :role "menuitem",
             :tabindex "-1",
             :id "user-menu-item-0"}
@@ -124,6 +126,7 @@
           [:a
            {:href (if (:prod dbcontent) "/settings" "/lgcanetti/settings"),
             :class (:mnu-l navclass),
+            :onClick "toggleMenu()",
             :role "menuitem",
             :tabindex "-1",
             :id "user-menu-item-1"}
@@ -131,6 +134,7 @@
           [:a
            {:href (if (:prod dbcontent) "/sign-out" "/lgcanetti/sign-out"),
             :class (:mnu-l navclass),
+            :onClick "toggleMenu()",
             :role "menuitem",
             :tabindex "-1",
             :id "user-menu-item-2"}
@@ -148,7 +152,7 @@
         [:span {:class "sr-only"} "Open main menu"]
         (comment "Menu open: \"hidden\", Menu closed: \"block\"")
         [:svg
-         {:class "block size-6",
+         {:class "block h-6 w-6",
           :fill "none",
           :viewBox "0 0 24 24",
           :stroke-width "1.5",
@@ -161,7 +165,7 @@
            :d "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"}]]
         (comment "Menu open: \"block\", Menu closed: \"hidden\"")
         [:svg
-         {:class "hidden size-6",
+         {:class "hidden h-6 w-6",
           :fill "none",
           :viewBox "0 0 24 24",
           :stroke-width "1.5",
@@ -225,7 +229,7 @@
         [:span {:class "absolute -inset-1.5"}]
         [:span {:class "sr-only"} "View notifications"]
         [:svg
-         {:class "size-6",
+         {:class "h-6 w-6",
           :fill "none",
           :viewBox "0 0 24 24",
           :stroke-width "1.5",
@@ -262,5 +266,5 @@
     [:div
      {:class "mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8"}
      (comment "Your content")
-     (:element dbcontent)]]]
+     (:element dbcontent)]]] 
   )

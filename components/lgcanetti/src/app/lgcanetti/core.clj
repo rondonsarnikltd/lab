@@ -19,7 +19,8 @@
       {:name "viewport" :content "width=device-width,initial-scale=1"}]
      [:title "Luis G. Canetti Morales's Page"]
      [:link {:href "tailwind.min.css" :rel "stylesheet"}]
-     [:script {:src "htmx.min.js"}]]
+     [:script {:src "htmx.min.js"}]
+     [:script {:src "lgcanetti.js"}]]
     [:body
      {:class "h-full"}
      (h/raw html-body)]])
