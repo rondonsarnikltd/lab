@@ -22,7 +22,7 @@
       "Meet our leadership"]
      [:p
       {:class "mt-6 text-lg/8 text-gray-600"}
-      "We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our clients."]]
+      "We're a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our clients."]]
     [:ul
      {:role "list",
       :class
