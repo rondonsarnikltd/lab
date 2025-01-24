@@ -94,7 +94,7 @@
            [:span {:class "sr-only"} "Open user menu"]
            [:img
             {:class "w-8 h-8 rounded-full",
-             :src ;"defaultusr.png",
+             :src
              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
              :alt "Photo"}]]]
          (comment
@@ -146,13 +146,15 @@
         {:type "button",
          :class
          "relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800",
+         :onClick "toggleMobileMenu()",
          :aria-controls "mobile-menu",
          :aria-expanded "false"}
         [:span {:class "absolute -inset-0.5"}]
         [:span {:class "sr-only"} "Open main menu"]
         (comment "Menu open: \"hidden\", Menu closed: \"block\"")
         [:svg
-         {:class "block h-6 w-6",
+         {:class "block h-6 w-6"
+          :id "svg-openmenu",
           :fill "none",
           :viewBox "0 0 24 24",
           :stroke-width "1.5",
@@ -166,6 +168,7 @@
         (comment "Menu open: \"block\", Menu closed: \"hidden\"")
         [:svg
          {:class "hidden h-6 w-6",
+          :id "svg-closemenu",
           :fill "none",
           :viewBox "0 0 24 24",
           :stroke-width "1.5",

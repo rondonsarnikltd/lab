@@ -31,8 +31,8 @@
       {:class
 
        ;"w-[48rem] max-w-none rounded-xl bg-gray-900 ring-1 shadow-xl ring-gray-400/10 sm:w-[57rem]",
-       "w-full max-w-8xl rounded-lg bg-gray-900 ring-1 shadow-lg ring-gray-400/10 sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/2",
-       ;"w-[18rem] max-w-none rounded-xl bg-gray-900 ring-1 shadow-xl ring-gray-400/10 sm:w-[27rem]",
+       "w-full max-w-4md rounded-lg bg-gray-900 ring-1 shadow-lg ring-gray-400/10 sm:w-full md:w-3/4 lg:w-2/3 xl:w-full",
+       ;"w-[48rem] max-w-none rounded-xl bg-gray-900 ring-1 shadow-xl ring-gray-400/10 sm:w-[57rem]",
        :src
        "https://tailwindui.com/plus/img/component-images/dark-project-app-screenshot.png",
        :alt ""}]]
