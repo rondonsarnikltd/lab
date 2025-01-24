@@ -39,8 +39,7 @@
            :aria-current "page"}
           (linktit 0)]
          [:a
-          {:href "#",
-           :onClick "alert('Link clicked!');",
+          {:href (if (:prod dbcontent) "/team" "/lgcanetti/team"),
            :class (if (= (:title dbcontent) (linktit 1)) (:selected-l navclass) (:normal-l navclass))}
           (linktit 1)] 
          [:a
@@ -186,8 +185,7 @@
         :aria-current "page"}
        (linktit 0)]
       [:a
-       {:href "#",
-        :onClick "alert('Link clicked!');",
+       {:href (if (:prod dbcontent) "/team" "/lgcanetti/team"),
         :class (if (= (:title dbcontent) (linktit 1)) (:selected-p navclass) (:normal-p navclass))}
        (linktit 1)]
       [:a
