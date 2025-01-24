@@ -1,5 +1,5 @@
 function toggleMenu() {
-    var menu = document.getElementById('menu-tl');
+    let menu = document.getElementById('menu-tl');
     if (menu.classList.contains('hidden')) {
         menu.classList.remove('hidden');
     } else {

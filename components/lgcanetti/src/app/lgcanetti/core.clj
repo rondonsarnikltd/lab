@@ -20,7 +20,7 @@
      [:title "Luis G. Canetti Morales's Page"]
      [:link {:href "tailwind.min.css" :rel "stylesheet"}]
      [:script {:src "htmx.min.js"}]
-     [:script {:src "lgcanetti.js"}]]
+     [:script {:type "application/javascript" :src "lgcanetti.js"}]]
     [:body
      {:class "h-full"}
      (h/raw html-body)]])
