@@ -153,7 +153,7 @@
         [:span {:class "sr-only"} "Open main menu"]
         (comment "Menu open: \"hidden\", Menu closed: \"block\"")
         [:svg
-         {:class "block h-6 w-6"
+         {:class "hidden h-6 w-6"
           :id "svg-openmenu",
           :fill "none",
           :viewBox "0 0 24 24",
@@ -167,7 +167,7 @@
            :d "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"}]]
         (comment "Menu open: \"block\", Menu closed: \"hidden\"")
         [:svg
-         {:class "hidden h-6 w-6",
+         {:class "block h-6 w-6",
           :id "svg-closemenu",
           :fill "none",
           :viewBox "0 0 24 24",
