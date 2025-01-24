@@ -4,7 +4,6 @@
              [clojure.string :as string]
              [app.lgcanetti.index :as index]
              [app.lgcanetti.login :as login]
-             [app.lgcanetti.welcomemsg :as welcomemsg]
              [app.lgcanetti.projects :as projects]
              [app.lgcanetti.team :as team]
              [app.lgcanetti.dashb :as dashb]))
