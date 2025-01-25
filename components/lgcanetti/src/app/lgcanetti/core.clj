@@ -15,8 +15,7 @@
    [:html
     {:class "h-full bg-gray-100"}
     [:head
-     [:meta
-      {:name "viewport" :content "width=device-width,initial-scale=1"}]
+     [:meta {:name "viewport" :content "width=device-width,initial-scale=1"}]
      [:title "Luis G. Canetti Morales's Page"]
      [:link {:href "tailwind.min.css" :rel "stylesheet"}]
      [:script {:src "htmx.min.js"}]
@@ -48,16 +47,19 @@
  
  (defn capitalize-first [s]
    (str (string/upper-case (subs s 0 1)) (subs s 1)))
+ 
+ (defn getParams [item tit]
+   {:element item :title tit :prod envp})
 
  (defn processMsg [msg]
    (println (str "Selected route: " msg))
    (cond 
-     (= msg "sign-out") (let [arg {:prod envp}] (respond-with-params login/login-page arg))
-     (= msg "dashboard") (let [arg {:element (dashb/dashb-page) :title (index/linktit 0) :prod envp}] (respond-with-params index/content arg))
-     (= msg "projects") (let [arg {:element (projects/get-projects projects/projects) :title (index/linktit 2) :prod envp}] (respond-with-params index/content arg))
-     (= msg "team") (let [arg {:element (team/team-page) :title (index/linktit 1) :prod envp}] (respond-with-params index/content arg))
-     :else (let [args {:element [:p (str "The user has clicked on " (capitalize-first msg))] :title (capitalize-first msg) :prod envp}]
-       (respond-with-params index/content args))))
+     (= msg "sign-out") (respond-with-params login/login-page (getParams nil nil))
+     (= msg "dashboard") (respond-with-params index/content (getParams (dashb/dashb-page) (index/linktit 0)))
+     (= msg "projects") (respond-with-params index/content (getParams (projects/get-projects projects/projects) (index/linktit 2)))
+     (= msg "team") (respond-with-params index/content (getParams (team/team-page) (index/linktit 1)))
+     :else (let [item [:p (str "The user has clicked on " (capitalize-first msg))] tit (capitalize-first msg)] 
+             (respond-with-params index/content (getParams item tit)))))
 
 
  (def message-handler
