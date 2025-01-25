@@ -153,7 +153,7 @@
         [:span {:class "sr-only"} "Open main menu"]
         (comment "Menu open: \"hidden\", Menu closed: \"block\"")
         [:svg
-         {:class "hidden h-6 w-6"
+         {:class "block h-6 w-6"
           :id "svg-openmenu",
           :fill "none",
           :viewBox "0 0 24 24",
@@ -167,7 +167,7 @@
            :d "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"}]]
         (comment "Menu open: \"block\", Menu closed: \"hidden\"")
         [:svg
-         {:class "block h-6 w-6",
+         {:class "hidden h-6 w-6",
           :id "svg-closemenu",
           :fill "none",
           :viewBox "0 0 24 24",
@@ -181,7 +181,7 @@
            :d "M6 18 18 6M6 6l12 12"}]]]]]]
     (comment "Mobile menu, show/hide based on menu state.")
     [:div
-     {:class "md:hidden", :id "mobile-menu"}
+     {:class "md:hidden hidden", :id "mobile-menu"}
      [:div
       {:class "space-y-1 px-2 pb-3 pt-2 sm:px-3"}
       (comment
@@ -189,18 +189,22 @@
       [:a
        {:href (if (get dbcontent :prod) "/dashboard" "/lgcanetti/dashboard"),
         :class (if (= (:title dbcontent) (linktit 0)) (:selected-p navclass) (:normal-p navclass)),
+        :onClick "toggleMobileMenu()",
         :aria-current "page"}
        (linktit 0)]
       [:a
        {:href (if (:prod dbcontent) "/team" "/lgcanetti/team"),
+        :onClick "toggleMobileMenu()",
         :class (if (= (:title dbcontent) (linktit 1)) (:selected-p navclass) (:normal-p navclass))}
        (linktit 1)]
       [:a
        {:href (if (:prod dbcontent) "/projects" "/lgcanetti/projects"),
+        :onClick "toggleMobileMenu()",
         :class (if (= (:title dbcontent) (linktit 2)) (:selected-p navclass) (:normal-p navclass))}
        (linktit 2)]
       [:a
        {:href (if (:prod dbcontent) "/calendar" "/lgcanetti/calendar"),
+        :onClick "toggleMobileMenu()",
         :class (if (= (:title dbcontent) (linktit 3)) (:selected-p navclass) (:normal-p navclass))}
        (linktit 3)]
       [:a
@@ -248,10 +252,12 @@
        {:class "mt-3 space-y-1 px-2"}
        [:a
         {:href (if (:prod dbcontent) "/profile" "/lgcanetti/profile"),
+         :onClick "toggleMobileMenu()",
          :class (:mnu-p navclass)}
         (linktit 5)]
        [:a
         {:href (if (:prod dbcontent) "/settings" "/lgcanetti/settings"),
+         :onClick "toggleMobileMenu()",
          :class (:mnu-p navclass)}
         (linktit 6)]
        [:a
