@@ -36,13 +36,20 @@ function toggleMobileMenu() {
     }
 }
 
-function toggleMenu() {
+function toggleMenu(delay) {
     let mnu= {
         btn: document.getElementById('menu-tl'),
         ishidden: () => { return mnu.btn.classList.contains('hidden'); },
         show: () => { mnu.btn.classList.remove('hidden'); },
         hide: () => { mnu.btn.classList.add('hidden'); }
     }
-    if (mnu.ishidden()) mnu.show();
-    else mnu.hide();
+    if(delay) {
+        setTimeout(() => {
+            if (mnu.ishidden()) mnu.show();
+            else mnu.hide();
+        }, 180);
+    } else {
+        if (mnu.ishidden()) mnu.show();
+        else mnu.hide();
+    }
 }

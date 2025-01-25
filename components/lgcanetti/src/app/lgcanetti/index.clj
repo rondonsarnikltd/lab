@@ -90,7 +90,7 @@
             :aria-expanded "false",
             :aria-haspopup "true",
             :onClick "toggleMenu()"
-            :onBlur "toggleMenu()"}
+            :onBlur "toggleMenu(true)"}
            [:span {:class "absolute -inset-1.5"}]
            [:span {:class "sr-only"} "Open user menu"]
            [:img
@@ -119,7 +119,7 @@
           [:a
            {:href (if (:prod dbcontent) "/profile" "/lgcanetti/profile"),
             :class (:mnu-l navclass),
-            :onClick "toggleMenu()",
+            ;:onClick "toggleMenu()",
             :role "menuitem",
             :tabindex "-1",
             :id "user-menu-item-0"}
@@ -127,7 +127,7 @@
           [:a
            {:href (if (:prod dbcontent) "/settings" "/lgcanetti/settings"),
             :class (:mnu-l navclass),
-            :onClick "toggleMenu()",
+            ;:onClick "toggleMenu()",
             :role "menuitem",
             :tabindex "-1",
             :id "user-menu-item-1"}
@@ -135,7 +135,7 @@
           [:a
            {:href (if (:prod dbcontent) "/sign-out" "/lgcanetti/sign-out"),
             :class (:mnu-l navclass),
-            :onClick "toggleMenu()",
+            ;:onClick "toggleMenu()",
             :role "menuitem",
             :tabindex "-1",
             :id "user-menu-item-2"}
