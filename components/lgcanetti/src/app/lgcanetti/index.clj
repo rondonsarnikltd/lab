@@ -89,7 +89,8 @@
             :id "user-menu-button",
             :aria-expanded "false",
             :aria-haspopup "true",
-            :onClick "toggleMenu()"}
+            :onClick "toggleMenu()"
+            :onBlur "toggleMenu()"}
            [:span {:class "absolute -inset-1.5"}]
            [:span {:class "sr-only"} "Open user menu"]
            [:img
@@ -210,6 +211,7 @@
       [:a
        {:href "https://google.com",
         :target "_blank",
+        :onClick "toggleMobileMenu()",
         :class (if (= (:title dbcontent) (linktit 4)) (:selected-p navclass) (:normal-p navclass))}
        (linktit 4)]]
      [:div
