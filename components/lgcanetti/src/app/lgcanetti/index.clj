@@ -7,7 +7,7 @@
                :mnu-l "block px-4 py-2 text-sm text-gray-700"
                :mnu-p "block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"})
 
-(def linktit ["Dashboard" "Team" "Projects" "Calendar" "Google" "Your Profile" "Settings" "Sign out"])
+(def linktit ["Dashboard" "Team" "Projects" "News Letter" "Google" "Your Profile" "Settings" "Sign out"])
 
 (defn content [dbcontent]
   [:div
@@ -47,7 +47,7 @@
            :class (if (= (:title dbcontent) (linktit 2)) (:selected-l navclass) (:normal-l navclass))}
           (linktit 2)]
          [:a
-          {:href (if (:prod dbcontent) "/calendar" "/lgcanetti/calendar"),
+          {:href (if (:prod dbcontent) "/newsletter" "/lgcanetti/newsletter"),
            :class (if (= (:title dbcontent) (linktit 3)) (:selected-l navclass) (:normal-l navclass))}
           (linktit 3)]
          [:a
@@ -204,7 +204,7 @@
         :class (if (= (:title dbcontent) (linktit 2)) (:selected-p navclass) (:normal-p navclass))}
        (linktit 2)]
       [:a
-       {:href (if (:prod dbcontent) "/calendar" "/lgcanetti/calendar"),
+       {:href (if (:prod dbcontent) "/newsletter" "/lgcanetti/newsletter"),
         :onClick "toggleMobileMenu()",
         :class (if (= (:title dbcontent) (linktit 3)) (:selected-p navclass) (:normal-p navclass))}
        (linktit 3)]

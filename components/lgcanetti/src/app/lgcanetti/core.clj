@@ -6,7 +6,8 @@
              [app.lgcanetti.login :as login]
              [app.lgcanetti.projects :as projects]
              [app.lgcanetti.team :as team]
-             [app.lgcanetti.dashb :as dashb]))
+             [app.lgcanetti.dashb :as dashb]
+             [app.lgcanetti.newslett :as newslett]))
  
 (def envp true) ;; Change to true to use production environment
 
@@ -58,6 +59,7 @@
      (= msg "dashboard") (respond-with-params index/content (getParams (dashb/dashb-page) (index/linktit 0)))
      (= msg "projects") (respond-with-params index/content (getParams (projects/get-projects projects/projects) (index/linktit 2)))
      (= msg "team") (respond-with-params index/content (getParams (team/team-page) (index/linktit 1)))
+     (= msg "newsletter") (respond-with-params index/content (getParams (newslett/newslett-page) (index/linktit 3)))
      :else (let [item [:p (str "The user has clicked on " (capitalize-first msg))] tit (capitalize-first msg)] 
              (respond-with-params index/content (getParams item tit)))))
 
