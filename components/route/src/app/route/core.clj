@@ -3,6 +3,7 @@
             [app.html.interface :as html]
             [app.user.interface :as user]
             [app.yunior.interface :as yunior]
+            [app.dylan.interface :as dylan]
             [app.lgcanetti.interface :as lgcanetti]))
 
 (defrecord RouteComponent [config]
@@ -14,6 +15,7 @@
                                         (user/get-routes) 
                                         (html/get-routes)
                                         (yunior/get-routes)
+                                        (dylan/get-routes)
                                         (lgcanetti/get-routes)))))
 
   (stop [component]
