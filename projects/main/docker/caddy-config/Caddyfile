@@ -22,6 +22,14 @@ www.dylanwhittaker.com  {
         reverse_proxy lab:8080
     }
 
+    handle /song-1.mp3 {
+        reverse_proxy lab:8080
+    }
+
+    handle /song-2.mp3 {
+        reverse_proxy lab:8080
+    }
+
     handle_path /* {
         rewrite * /dylan{uri}
         reverse_proxy lab:8080
