@@ -23,7 +23,7 @@ www.dylanwhittaker.com  {
     }
 
     handle_path /* {
-        rewrite * /yunior{uri}
+        rewrite * /dylan{uri}
         reverse_proxy lab:8080
     }
 }
